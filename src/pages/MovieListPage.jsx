@@ -1,40 +1,40 @@
-import movies from "../data/movies.json"
-import MovieCard from "../components/MovieCard"
 import { useState } from "react"
+import MovieCard from "../components/MovieCard"
+import movies from "../data/movies.json"
 
 export default function MovieListPage() {
 
-    const [search, setSearch] = useState('')
-    const [listaFilmes, setListaFilmes] = useState(movies)
+    const [search, setSearch] = useState("")
 
-    const handleSearch = (e) => {
-        setSearch(e.target.value)
-        
-        setListaFilmes(filmesFiltrados)
-}
+    const handleSearch = (event) => {
+        setSearch(event.target.value)
+        console.log(search)
+    }
+
+    const filmesFiltrados = movies.filter( filme => filme.titulo.toLowerCase().includes(search.toLowerCase()))
+
     return (
         <>
-            <h2>Veja a lista completa de filmes</h2>
+            <h2>Veja o catálogo completo de filmes</h2>
             <input
                 className="text-black"
                 type="text"
-                name="search"
                 id="search"
                 value={search}
                 onChange={handleSearch}
             />
-
-            <div className="flex">
+            <section className="flex">
                 {
-                    listaFilmes
-                        .filter(filme => (filme.titulo).includes(search).toLowerCase)
+                    filmesFiltrados.length > 0 ?
+                    filmesFiltrados
                         .map(filme => (
                             <MovieCard key={filme.id} {...filme} />
                         ))
+                        :
+                        <p>Filme não encontrado</p>
                 }
-            </div>
+            </section>
         </>
     )
-
 }
 
