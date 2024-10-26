@@ -21,9 +21,9 @@ export default function Header() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/movies">Filmes</NavLink></li>
                         <li><NavLink to="/genre">Gêneros</NavLink></li>
-                        <li><NavLink to="/favoritos">Favoritos</NavLink></li>
+                        {/* <li><NavLink to="/favoritos">Favoritos</NavLink></li> */}
                         <li><NavLink to="/contato">Contato</NavLink></li>
-                        {isLogged && <li><NavLink to="/settings">Configurações</NavLink></li>}
+                        {isLogged && <li><NavLink to="/settings">Settings</NavLink></li>}
                     </ul>
                 </nav>
                 <div onClick={handleLogin} className="cursor-pointer">
