@@ -5,8 +5,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Outlet />
+     <Header/>
+     <Outlet/>
     </>
   )
 }
