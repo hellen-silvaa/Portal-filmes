@@ -10,6 +10,7 @@ export default function Header() {
         setIsLogged(!isLogged);
     }
 
+    
     return (
         <>
             <header className="w-full h-10 flex justify-between items-center p-10 mb-1 bg-blue-300 bg-opacity-50">
